@@ -1,0 +1,30 @@
+{
+  "name": "oerror",
+  "version": "0.1.0",
+  "description": "Customizable Error using an Object.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha",
+    "cover": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "view-cover": "./node_modules/istanbul/lib/cli.js report html && open ./coverage/index.html"
+  },
+  "keywords": [
+    "error",
+    "custom",
+    "customize",
+    "customizable",
+    "utility"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/woozyking/oerror.git"
+  },
+  "author": "Runzhou Li (Leo)",
+  "license": "MIT",
+  "devDependencies": {
+    "coveralls": "^2.11.8",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5"
+  }
+}
