@@ -5,4 +5,4 @@ node_js:
   - "4.3"
   - "0.12"
 script: npm run-script cover
-after_script: npm run-script coveralls
+after_script: npm run-script codeclimate

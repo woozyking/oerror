@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha",
     "cover": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "codeclimate": "./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./coverage/lcov.info",
     "view-cover": "./node_modules/istanbul/lib/cli.js report html && open ./coverage/index.html"
   },
   "keywords": [
@@ -23,8 +23,8 @@
   "author": "Runzhou Li (Leo)",
   "license": "MIT",
   "devDependencies": {
-    "coveralls": "^2.11.8",
     "istanbul": "^0.4.2",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "codeclimate-test-reporter": "^0.3.1"
   }
 }
