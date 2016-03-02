@@ -1,5 +1,10 @@
 # OError
 
+[![Build Status](https://travis-ci.org/woozyking/oerror.svg?branch=master)](https://travis-ci.org/woozyking/oerror)
+[![Dependency Status](https://gemnasium.com/woozyking/oerror.svg)](https://gemnasium.com/woozyking/oerror)
+[![Test Coverage](https://codeclimate.com/github/woozyking/oerror/badges/coverage.svg)](https://codeclimate.com/github/woozyking/oerror/coverage)
+[![Code Climate](https://codeclimate.com/github/woozyking/oerror/badges/gpa.svg)](https://codeclimate.com/github/woozyking/oerror)
+
 Customizable Error using an Object. It is a subclass of Node.js standard [`Class: Error`](https://nodejs.org/api/errors.html), with the overridden behavior when the constructor argument is a plain key-value `Object`.
 
 ## Install
