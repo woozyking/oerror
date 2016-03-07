@@ -2,9 +2,10 @@ var assert = require('assert');
 
 // test target
 var OError = require('../index');
+var oerror = require('../index').oerror;
 
 describe('Class: OError', function() {
-  describe('new OError(opt)', function() {
+  describe('new OError([opt])', function() {
     it('should create an instance of OError when opt is a plain object.', function() {
       var err = new OError({
         message: 'LOL'
@@ -105,6 +106,48 @@ describe('Class: OError', function() {
         type: 'DB Connection',
         component: 'MongoDB'
       });
+    });
+  });
+});
+
+describe('Function wrapper: oerror([opt])', function() {
+  it('should create an instance of OError when opt is a plain object.', function() {
+    var err = oerror({
+      message: 'LOL'
+    });
+    assert(err instanceof OError);
+    assert(err instanceof Error);
+  });
+
+  it('should return an Error object when opt is an Error object.', function() {
+    var err = oerror(new Error());
+    assert(!(err instanceof OError));
+    assert(err instanceof Error);
+  });
+
+  it('should return an OError object when opt is an OError object.', function() {
+    var err = oerror(new OError({}));
+    assert(err instanceof OError);
+    assert(err instanceof Error);
+  });
+
+  it('should return an Error object when opt is a string.', function() {
+    var err = oerror('LOL');
+    assert(!(err instanceof OError));
+    assert(err instanceof Error);
+  });
+
+  it('should return an OError object when opt is null.', function() {
+    var err = oerror(null);
+    assert(err instanceof OError);
+    assert(err instanceof Error);
+  });
+
+  it('should return an Error object when opt is not a plain object, string, null, or Error (including Error subclasses).', function() {
+    [[], undefined, 123, -12.3].forEach(function(opt) {
+      var err = oerror(opt);
+      assert(!(err instanceof OError), 'Opt:' + opt);
+      assert(err instanceof Error, 'Opt:' + opt);
     });
   });
 });

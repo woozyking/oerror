@@ -56,6 +56,13 @@ If you get too comfortable with `OError`:
 Error = require('oerror'); // USE WITH CAUTION
 ```
 
+`Since 0.2` you can use the function wrapper if you prefer not to use the `new OError` syntax.
+
+```javascript
+var oerror = require('oerror').oerror;
+var err = oerror({ /* OError constructor options */ });
+```
+
 ## Properties
 
 `Class: OError` inherits the following standard properties from `Error`:
@@ -70,7 +77,7 @@ All other properties that are unowned by `Error` (therefore also `OError`) type 
 
 ```
 Class: OError
-  new OError(opt)
+  new OError([opt])
     ✓ should create an instance of OError when opt is a plain object.
     ✓ should return an Error object when opt is an Error object.
     ✓ should return an OError object when opt is an OError object.
@@ -88,4 +95,12 @@ Class: OError
     ✓ should contain <name>: <message> in the first line
   oerror.<others>
     ✓ should copy over all Error unowned properties from opt
+
+Function wrapper: oerror([opt])
+  ✓ should create an instance of OError when opt is a plain object.
+  ✓ should return an Error object when opt is an Error object.
+  ✓ should return an OError object when opt is an OError object.
+  ✓ should return an Error object when opt is a string.
+  ✓ should return an OError object when opt is null.
+  ✓ should return an Error object when opt is not a plain object, string, null, or Error (including Error subclasses).
 ```

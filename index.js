@@ -54,3 +54,8 @@ var OError = function(opt) {
 require('util').inherits(OError, _Error);
 
 module.exports = OError;
+
+// Function wrapper to directly return a new OError. Since 0.2.
+module.exports.oerror = function(opt) {
+  return new OError(opt);
+};
